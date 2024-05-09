@@ -228,7 +228,7 @@
 	}
 
 	(function attachObserver() {
-		const leftPlayer = document.querySelector(".main-nowPlayingBar-left");
+		const leftPlayer = document.querySelector(".main-nowPlayingBar-extraControls");
 		if (!leftPlayer) {
 			setTimeout(attachObserver, 300);
 			return;
