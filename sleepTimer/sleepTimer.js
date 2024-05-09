@@ -1,5 +1,6 @@
 // NAME: Sleep Timer
 // AUTHOR: OhItsTom
+// AUTHOR OF FORK: brusvv
 // DESCRIPTION: Pause playback after a certain amount of time.
 // TODO: all the react logic sucks, global scope vars are bad, and the code is messy. I'll fix it later.
 
@@ -228,7 +229,7 @@
 	}
 
 	(function attachObserver() {
-		const leftPlayer = document.querySelector(".main-nowPlayingBar-extraControls");
+		const leftPlayer = document.querySelector(".main-nowPlayingBar-right");
 		if (!leftPlayer) {
 			setTimeout(attachObserver, 300);
 			return;
@@ -238,7 +239,7 @@
 			mutations.forEach(mutation => {
 				if (mutation.removedNodes.length > 0) {
 					const removedNodes = Array.from(mutation.removedNodes);
-					const isNowPlayingRemoved = removedNodes.some(node => node.classList && node.classList.contains(".main-nowPlayingBar-extraControls"));
+					const isNowPlayingRemoved = removedNodes.some(node => node.classList && node.classList.contains("main-nowPlayingWidget-nowPlaying"));
 					if (isNowPlayingRemoved) {
 						waitForWidgetMounted();
 					}
