@@ -208,8 +208,8 @@
 
 	// DOM Manipulation
 	function waitForWidgetMounted() {
-		nowPlayingWidget = document.querySelector(".main-nowPlayingWidget-nowPlaying");
-		entryPoint = document.querySelector(".main-nowPlayingWidget-nowPlaying > button:last-child");
+		nowPlayingWidget = document.querySelector(".main-nowPlayingBar-extraControls");
+		entryPoint = document.querySelector(".main-nowPlayingBar-extraControls > button:last-child");
 		if (!(nowPlayingWidget && entryPoint)) {
 			setTimeout(waitForWidgetMounted, 300);
 			return;
@@ -238,7 +238,7 @@
 			mutations.forEach(mutation => {
 				if (mutation.removedNodes.length > 0) {
 					const removedNodes = Array.from(mutation.removedNodes);
-					const isNowPlayingRemoved = removedNodes.some(node => node.classList && node.classList.contains("main-nowPlayingWidget-nowPlaying"));
+					const isNowPlayingRemoved = removedNodes.some(node => node.classList && node.classList.contains(".main-nowPlayingBar-extraControls"));
 					if (isNowPlayingRemoved) {
 						waitForWidgetMounted();
 					}
